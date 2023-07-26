@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Analog Clock</title>
+  <style>
+  *{
+    margin:0; 
+    padding:0; 
+    box-sizing: border-box;
+  }
+  
+  body{
+    background-color:rgba(0,0,0, 0.3);
+    color:#000;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    font-family: sans-serif;
+  }
+  
+  .container{
+    position:relative;
+  }
+  
+  .clock{
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background-color: #000;
+
+    /* background-color: rgba(0,0,230,0.2); */
+    /* background-color: rgba(150, 255, 100, 0.4);*/
+    /*background-color:rgba(255,255,255,0.1);*/
+    /* border:2px solid rgba(255,255,255.0.2); */
+    box-shadow:0px 0px 10px rgb(255,255,255,1) inset;
+    /* border:8px solid black; */
+    border: 8px solid brown;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .clock span{
+    position:absolute;
+    transform:rotate(calc(30deg * var(--i)));
+    inset:40px;
+    text-align: center;
+  }
+
+  .clockBars span{
+    position:absolute;
+    transform:rotate(calc(30deg * var(--i)));
+    inset:20px;
+    color:#fff;
+    text-align: center;
+  } 
+  .clock span b{
+    transform: rotate(calc(-30deg * var(--i)));
+    display: inline-block;
+    font-size:24px;
+  }
+  
+  .clock::before{
+    content:'';
+    position: absolute;
+    width: 12px;
+    height:12px;
+    background-color: #9d953a;
+    border-radius:50%;
+    z-index:2;
+  }
+  
+  .hand{
+    position: absolute;
+    display:flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  
+  .hand i{
+    position: absolute;
+    background-color: var(--clr);
+    width:4px;
+    height:var(--ht);
+    border-radius:50%;
+    
+  }
+  .hand p{transform:rotate(-90deg); position: relative;}
+  
+ /* #hour{transform: rotate(45deg);}
+  #min{transform: rotate(160deg);}
+  #sec{transform: rotate(290deg);} */
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <div class="clock">
+      <p style="position:absolute; top:120px; text-align:center; color:rgba(255,255,255,1); font-size: 24px;"> <b> Designed by: <br>Safdar Siddiqui </b> </p>
+      
+      <p style="position:absolute; bottom:150px; width:fit-content; padding:4px 6px; height:32px; font-weight:bold;  color:#000; display:flex; justify-content: center; align-items: center; border-radius: 5px; font-size: 30px; background-color: rgba(255,255,255,0.7);" id="showDate"> Show Date </p>
+      
+      
+      <div style="--clr:#b35db5; --ht:120px;" class="hand" id="hour"> <i> </i></div>
+      <div style="--clr:#b35db5; --ht:140px;" class="hand" id="minute"> <i> </i></div>
+      <div style="--clr:rgb(165,42,42); --ht:150px;" class="hand" id="second"> <i> </i></div>
+      
+
+      <div class="clockBars"> 
+      <span style="--i:1.2;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:1.4;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:1.6;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:1.8;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:2;"> <b style="transform: rotate(180deg); font-size: 20px;"> | </b></span>
+
+      <span style="--i:2.2;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:2.4;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:2.6;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:2.8;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:3;"> <b style="transform: rotate(180deg); font-size: 20px;"> | </b></span>
+ 
+      <span style="--i:3.2;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:3.4;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:3.6;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:3.8;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:4;"> <b style="transform: rotate(180deg); font-size: 20px;"> | </b></span>
+
+      <span style="--i:4.2;"> <b style="transform: rotate(180deg); font-size:14px"> | </b></span>
+      <span style="--i:4.4;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:4.6;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:4.8;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:5;"> <b style="transform: rotate(180deg); font-size: 20px;"> | </b></span>
+
+      <span style="--i:5.2;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:5.4;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:5.6;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:5.8;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:6;"> <b style="transform: rotate(180deg); font-size: 20px; "> | </b></span>
+
+      <span style="--i:6.2;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:6.4;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:6.6;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:6.8;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:7;"> <b style="transform: rotate(180deg); font-size: 20px;"> | </b></span>
+
+      <span style="--i:7.2;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:7.4;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:7.6;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:7.8;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:8;"> <b style="transform: rotate(180deg); font-size: 20px;"> | </b></span>
+
+      <span style="--i:8.2;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:8.4;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:8.6;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:8.8;"> <b style="transform: rotate(180deg); font-size:14px"> | </b></span>
+      <span style="--i:9;"> <b style="transform: rotate(180deg); font-size: 20px;"> | </b></span>
+
+      <span style="--i:9.2;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:9.4;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:9.6;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:9.8;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:10;"> <b style="transform: rotate(180deg); font-size: 20px;"> | </b></span>
+
+      <span style="--i:10.2;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:10.4;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:10.6;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:10.8;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:11;"> <b style="transform: rotate(180deg); font-size: 20px;"> | </b></span>
+
+      <span style="--i:11.2;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:11.4;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:11.6;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:11.8;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:12;"> <b style="transform: rotate(180deg); font-size: 20px;"> | </b></span>
+
+      <span style="--i:12.2;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:12.4;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:12.6;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:12.8;"> <b style="transform: rotate(180deg); font-size:14px;"> | </b></span>
+      <span style="--i:13;"> <b style="transform: rotate(180deg); font-size: 20px;"> | </b></span>
+
+    </div>
+
+      <span style="--i:1; color:rgba(0,0,0,1);"> <b> 1 </b></span>
+      
+      
+      <span style="--i:2; color:rgba(0,0,0,1);"> <b> 2 </b></span>
+      
+      
+      <span style="--i:3; color:rgba(0,0,0,1);"> <b style="font-size:28px; color:#fff;"> 3 </b></span>
+      
+      
+      <span style="--i:4; color:rgba(0,0,0,1);"> <b> 4 </b></span>
+      
+      
+      <span style="--i:5; color:rgba(0,0,0,1);"> <b> 5 </b></span>
+      
+      
+      <span style="--i:6; color:rgba(0,0,0,1);"> <b style="font-size:28px; color:#fff;"> 6 </b></span>
+      
+      
+      <span style="--i:7; color:rgba(0,0,0,1);"> <b> 7 </b></span>
+      
+      
+      <span style="--i:8; color:rgba(0,0,0,1);"> <b> 8 </b></span>
+      
+      
+      <span style="--i:9; color:rgba(0,0,0,1);"> <b style="font-size:28px; color:#fff;"> 9 </b></span>
+      
+      
+      <span style="--i:10; color:rgba(0,0,0,1);"> <b> 10 </b></span>
+      
+      
+      <span style="--i:11; color:rgba(0,0,0,1);"> <b> 11 </b></span>
+      
+      
+      <span style="--i:12; color:rgba(0,0,0,1);"> <b style="font-size:28px; color:#fff"> 12 </b></span>
+      
+      
+    </div>
+  </div>
+  
+  <script>
+let hr= document.getElementById("hour");
+let min= document.getElementById("minute");
+let sec= document.getElementById("second");
+
+function displayTime(){
+  let date = new Date();
+  let hh= date.getHours();
+  let mm= date.getMinutes();
+  let ss= date.getSeconds();
+  
+  let hRotation= 30*hh + mm/2;
+  let mRotation= 6*mm;
+  let sRotation= 6*ss;
+  
+  hr.style.transform= `rotate(${hRotation}deg)`;
+  min.style.transform= `rotate(${mRotation}deg)`;
+  sec.style.transform= `rotate(${sRotation}deg)`;
+  
+}
+setInterval(displayTime, 1000);
+
+  let myDate = new Date();
+  
+  var a= document.getElementById("showDate");
+  a.innerHTML = myDate.toDateString();
+  
+</script>
+
+  
+</body>
+</html>
